@@ -2,6 +2,8 @@
 
 Implementation of the algorithm described in http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf
 
+[![Build Status](https://travis-ci.org/jonathanstowe/EuclideanRhythm.svg?branch=master)](https://travis-ci.org/jonathanstowe/EuclideanRhythm)
+
 ## Synopsis
 
 ```perl6
