@@ -78,7 +78,6 @@ class EuclideanRhythm {
     has $!level;
 
     method !bitmap(Int $level, @count, @remainder ) { 
-        my @bitmap;
    
         if $level == -1 {
             take False;
@@ -87,17 +86,17 @@ class EuclideanRhythm {
             take True;
         }
         else {
-            for 0 .. @count[$level] - 1 {
-                self!bitmap($level - 1, @count, @remainder); 
-            }
             if @remainder[$level] != 0 {     
                 self!bitmap($level - 2, @count, @remainder); 
+            }
+            for 0 .. @count[$level] - 1 {
+                self!bitmap($level - 1, @count, @remainder); 
             }
         }
     }
 
-    submethod BUILD(Int :$!slots, Int :$!fills where * <= $!slots) {
-        my $divisor = $!slots - $!fills; 
+    submethod BUILD(Int :$!slots, Int :$!fills where * <= $!slots, Int :$rotate = 0) {
+        my $divisor = $!slots - $!fills;
         @!remainder[0] = $!fills; 
         $!level = 0; 
         while @!remainder[$!level] > 1 { 
@@ -107,6 +106,7 @@ class EuclideanRhythm {
             $!level++;
         }
         @!count[$!level] = $divisor; 
+
     }
 
     method list() {
