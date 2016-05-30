@@ -62,7 +62,7 @@ would be implemented in another module.
 
 ## License and Copyright
 
-This is free software. Please see the LICENSE file in the distribution.
+This is free software. Please see the LICENCE file in the distribution.
 
 © Jonathan Stowe 2016
 
