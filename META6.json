@@ -13,7 +13,7 @@
    "build-depends" : [],
    "tags" : [ "rhythm", "algorithm", "euclid" ],
    "perl" : "6.c",
-   "license" : "perl",
+   "license" : "Artistic-2.0",
    "support" : {
       "source" : "git@github.com:jonathanstowe/EuclideanRhythm.git"
    }
