@@ -6,7 +6,7 @@
     "email" : "jns+gh@gellyfish.co.uk",
     "bugtracker" : "https://github.com/jonathanstowe/EuclideanRhythm/issues"
   },
-  "perl": "6.c",
+  "perl": "6.*",
   "resources": [
   ],
   "build-depends": [

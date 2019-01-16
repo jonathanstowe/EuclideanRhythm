@@ -1,4 +1,4 @@
-use v6.c;
+use v6;
 
 =begin pod
 
@@ -62,7 +62,7 @@ This returns a C<slots> sized array, filled appropriately.
     method list()
 
 This is an infinite lazy list of the calculated pattern and is probably
-the more useful interface, obviously this is produced as fast as 
+the more useful interface, obviously this is produced as fast as
 possible so if you are using it to generate events which you care about
 the timing of then you will need to take care of the timing yourself.
 
@@ -77,8 +77,8 @@ class EuclideanRhythm {
     has @!remainder;
     has $!level;
 
-    method !bitmap(Int $level, @count, @remainder ) { 
-   
+    method !bitmap(Int $level, @count, @remainder ) {
+
         if $level == -1 {
             take False;
         }
@@ -86,26 +86,26 @@ class EuclideanRhythm {
             take True;
         }
         else {
-            if @remainder[$level] != 0 {     
-                self!bitmap($level - 2, @count, @remainder); 
+            if @remainder[$level] != 0 {
+                self!bitmap($level - 2, @count, @remainder);
             }
             for 0 .. @count[$level] - 1 {
-                self!bitmap($level - 1, @count, @remainder); 
+                self!bitmap($level - 1, @count, @remainder);
             }
         }
     }
 
     submethod BUILD(Int :$!slots, Int :$!fills where * <= $!slots, Int :$rotate = 0) {
         my $divisor = $!slots - $!fills;
-        @!remainder[0] = $!fills; 
-        $!level = 0; 
-        while @!remainder[$!level] > 1 { 
-            @!count[$!level] = $divisor / @!remainder[$!level]; 
-            @!remainder[$!level+1] = $divisor % @!remainder[$!level]; 
-            $divisor = @!remainder[$!level]; 
+        @!remainder[0] = $!fills;
+        $!level = 0;
+        while @!remainder[$!level] > 1 {
+            @!count[$!level] = $divisor / @!remainder[$!level];
+            @!remainder[$!level+1] = $divisor % @!remainder[$!level];
+            $divisor = @!remainder[$!level];
             $!level++;
         }
-        @!count[$!level] = $divisor; 
+        @!count[$!level] = $divisor;
 
     }
 
@@ -116,11 +116,11 @@ class EuclideanRhythm {
             }
         }
     }
-   
-   
+
+
     method once() {
-         do gather { self!bitmap($!level, @!count, @!remainder) }; 
-    } 
+         do gather { self!bitmap($!level, @!count, @!remainder) };
+    }
 }
 
 # vim: expandtab shiftwidth=4 ft=perl6
