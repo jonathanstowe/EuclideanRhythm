@@ -42,7 +42,7 @@ should be able to install this with *zef*:
 
 or if you have a local copy of this repository:
 
-	sef install .
+	zef install .
 
 in the directory you found this file.
 
@@ -61,5 +61,5 @@ would be implemented in another module.
 
 This is free software. Please see the LICENCE file in the distribution.
 
-© Jonathan Stowe 2016, 2017
+© Jonathan Stowe 2016, 2017, 2018, 2019
 
