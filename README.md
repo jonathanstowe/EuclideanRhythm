@@ -2,11 +2,12 @@
 
 Implementation of the algorithm described in http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf
 
-[![Build Status](https://travis-ci.org/jonathanstowe/EuclideanRhythm.svg?branch=master)](https://travis-ci.org/jonathanstowe/EuclideanRhythm)
+![Build Status](https://github.com/jonathanstowe/EuclideanRhythm/workflows/CI/badge.svg)
+
 
 ## Synopsis
 
-```perl6
+```raku
 
     use EuclideanRhythm;
 
@@ -35,8 +36,7 @@ over a fixed number of slots may find this useful.
 
 ## Installation
 
-Assuming you have a working installation of Rakudo perl 6 then you
-should be able to install this with *zef*:
+Assuming you have a working installation of Rakudo then you should be able to install this with *zef*:
 
 	zef install EuclideanRhythm
 
@@ -59,7 +59,7 @@ would be implemented in another module.
 
 ## Licence and Copyright
 
-This is free software. Please see the LICENCE file in the distribution.
+This is free software. Please see the [LICENCE](LICENCE) file in the distribution.
 
-© Jonathan Stowe 2016, 2017, 2018, 2019
+© Jonathan Stowe 2016 - 2021
 

@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 use v6;
 
@@ -8,4 +8,4 @@ use-ok 'EuclideanRhythm', "loads ok";
 
 
 done-testing;
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku

@@ -1,0 +1,41 @@
+#!/usr/bin/env raku
+
+use Audio::PortMIDI;
+use EuclideanRhythm;
+
+sub MAIN(Int :$bpm = 120, Int :$channel = 9, Int :$device = 3, :$part) {
+
+    my $event-type = NoteOn;
+
+    my @parts;
+    for $part.list -> $p {
+        my ( $note, $slots, $fills) = $p.split(',',:skip-empty).map({$_.Int});
+        my %part = 
+            note => Audio::PortMIDI::Event.new(:$event-type, :$channel, data-one => $note, data-two => 127, timestamp => 0),
+            fills => EuclideanRhythm.new(:$slots, :$fills).list;
+        @parts.push: %part;
+    }
+
+
+    my $pm = Audio::PortMIDI.new;
+
+    my $stream = $pm.open-output($device, 32);
+
+    my $note = 0;
+
+    react {
+        whenever Supply.interval(60/($bpm * 4)) {
+            my Audio::PortMIDI::Event @notes;
+            for @parts -> $part {
+                if $part<fills>[$note] {
+                    @notes.push: $part<note>;
+                }
+            }
+
+            $stream.write(@notes);
+            $note++;
+        }
+    }
+}
+
+# vim: expandtab shiftwidth=4 ft=raku

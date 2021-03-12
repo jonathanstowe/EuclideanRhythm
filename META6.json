@@ -1,6 +1,6 @@
 {
   "name": "EuclideanRhythm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "auth": "github:jonathanstowe",
   "api": "1.0",
   "description": "create rhythmic patterns based on the Euclidean algorithm",
@@ -11,6 +11,7 @@
     "bugtracker": "https://github.com/jonathanstowe/EuclideanRhythm/issues"
   },
   "perl": "6.*",
+  "rakudo": "6.*",
   "resources": [
   ],
   "build-depends": [
@@ -31,5 +32,5 @@
   "authors": [
     "Jonathan Stowe <jns+gh@gellyfish.co.uk>"
   ],
-  "meta-version": "0"
+  "meta-version": "1"
 }
